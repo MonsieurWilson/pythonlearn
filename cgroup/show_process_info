@@ -1,0 +1,10 @@
+#/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+    echo "Usage: "$0" <pid>"
+    exit -1
+fi
+
+PID=$1
+
+watch -d -n 1 ps -T -o pid,ppid,psr,cgroup,command,pcpu --pid  ${PID}
